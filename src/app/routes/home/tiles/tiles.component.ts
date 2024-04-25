@@ -17,8 +17,8 @@ export class TilesComponent implements OnInit {
       const tile = {
         w: this.getWidth(),
         l: this.getHeight(),
-        y: this.getTransform(),
-        x: this.getTransform(),
+        y: this.getTransformHeight(),
+        x: this.getTransformWidth(),
       };
       this.tiles.push(tile);
     }
@@ -37,9 +37,14 @@ export class TilesComponent implements OnInit {
     return this.randomIntFromInterval(150, 250);
   }
 
-  getTransform() {
-    const min = window.innerWidth - 500;
-    const max = window.innerHeight - 500;
+  getTransformWidth() {
+    const min = window.innerWidth - 1000;
+    const max = window.innerWidth;
+    return this.randomIntFromInterval(min, max);
+  }
+  getTransformHeight() {
+    const min = window.innerHeight - 500;
+    const max = window.innerHeight;
     return this.randomIntFromInterval(min, max);
   }
 
@@ -48,8 +53,8 @@ export class TilesComponent implements OnInit {
       this.tiles.forEach((tile) => {
         tile.l = this.getWidth();
         tile.w = this.getHeight();
-        tile.x = this.getTransform();
-        tile.y = this.getTransform();
+        tile.x = this.getTransformWidth();
+        tile.y = this.getTransformHeight();
       });
     }, 10000);
   }
