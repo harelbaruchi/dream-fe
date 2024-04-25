@@ -38,12 +38,12 @@ export class TilesComponent implements OnInit {
   }
 
   getTransformWidth() {
-    const min = window.innerWidth - 1000;
+    const min = -100;
     const max = window.innerWidth;
     return this.randomIntFromInterval(min, max);
   }
   getTransformHeight() {
-    const min = window.innerHeight - 500;
+    const min = -100;
     const max = window.innerHeight;
     return this.randomIntFromInterval(min, max);
   }

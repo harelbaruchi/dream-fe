@@ -1,9 +1,11 @@
-<div
-  class="tile"
-  *ngFor="let tile of tiles"
-  [ngStyle]="{
-    width: tile.l + 'px',
-    height: tile.w + 'px',
-    transform: 'translateX(' + tile.x + 'px)' + 'translateY(' + tile.y + 'px)'
-  }"
-></div>
+<div class="tiles-wrapper">
+  <div
+    class="tile"
+    *ngFor="let tile of tiles"
+    [ngStyle]="{
+      width: tile.l + 'px',
+      height: tile.w + 'px',
+      transform: 'translateX(' + tile.x + 'px)' + 'translateY(' + tile.y + 'px)'
+    }"
+  ></div>
+</div>
