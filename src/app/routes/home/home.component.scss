@@ -1,3 +1,31 @@
+@import "src/assets/abstract-dir/mixins";
+
+.main {
+  position: absolute;
+
+  top: 286px;
+  left: 1%;
+  right: 1%;
+}
+
+span {
+  &.title {
+    color: #fff;
+  }
+  font-family: Inter;
+  font-size: 55px;
+  font-style: normal;
+  font-weight: 500;
+  line-height: 36px; /* 150% */
+  &.pre-title {
+    color: var(--basic-dark-gray, #808080);
+  }
+}
+
+.name-title {
+  display: block;
+}
+
 h1 {
   color: white;
 }

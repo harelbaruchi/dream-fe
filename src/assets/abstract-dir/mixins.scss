@@ -1,0 +1,82 @@
+@mixin fluid-type(
+  $properties,
+  $min-vw,
+  $max-vw,
+  $min-value,
+  $max-value,
+  $important: ""
+) {
+  @each $property in $properties {
+    #{$property}: $min-value if-important($important);
+  }
+
+  @media screen and (min-width: $min-vw) {
+    @each $property in $properties {
+      #{$property}: calc(
+          #{$min-value} +
+            #{strip-unit($max-value - $min-value)} *
+            (100vw - #{$min-vw}) /
+            #{strip-unit($max-vw - $min-vw)}
+        )
+        if-important($important);
+    }
+  }
+
+  @media screen and (min-width: $max-vw) {
+    @each $property in $properties {
+      #{$property}: $max-value if-important($important);
+    }
+  }
+}
+
+@function strip-unit($value) {
+  @return $value/($value * 0 +1);
+}
+
+@function if-important($important) {
+  @return #{if($important== "!important", "!important", "")};
+}
+
+@mixin fluid-type-mobile-360px($properties, $min-value, $important: "") {
+  $max-value: $min-value * 2;
+
+  @include fluid-type(
+    $properties,
+    360px,
+    720px,
+    $min-value,
+    $max-value,
+    $important
+  );
+}
+
+@mixin fluid-type-mobile($properties, $max-value, $important: "") {
+  $min-value: $max-value / 2;
+
+  @include fluid-type(
+    $properties,
+    320px,
+    640px,
+    $min-value,
+    $max-value,
+    $important
+  );
+}
+
+@mixin fluid-type-desktop($properties, $max-value, $important: "") {
+  $min-value: $max-value/1.3;
+  @include fluid-type(
+    $properties,
+    1024px,
+    1920px,
+    $min-value,
+    $max-value,
+    $important
+  );
+}
+
+@mixin md {
+  @media (min-width: 992px) {
+    @content;
+  }
+}

@@ -1,6 +1,8 @@
+@import "src/assets/abstract-dir/mixins";
+
 .navbar-wrapper {
   background-image: url("../../../assets/backgrounds/Background\ Gradient.png");
-  width: 1512px;
+
   height: 550px;
   flex-shrink: 0;
   margin: 0 auto;
@@ -8,15 +10,15 @@
 .navbar {
   background-color: rgba(24, 24, 29, 0.3);
   backdrop-filter: blur(2px);
-  position: absolute;
-  top: 10%;
-  right: 1%;
-  left: 1%;
+  @include fluid-type(width, 360px, 1280px, 320px, 1580px);
+  // position: absolute;
+  // top: 10%;
+  // right: 1%;
+  // left: 1%;
   margin-right: auto;
   margin-left: auto;
   align-self: center;
   display: flex;
-  width: 1024px;
   height: 60px;
   padding: 16px;
   justify-content: space-between;
