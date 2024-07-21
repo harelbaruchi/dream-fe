@@ -22,7 +22,6 @@ export class TilesComponent implements OnInit {
       };
       this.tiles.push(tile);
     }
-    console.log(this.tiles);
   }
 
   randomIntFromInterval(min: number, max: number) {
@@ -38,13 +37,13 @@ export class TilesComponent implements OnInit {
   }
 
   getTransformWidth() {
-    const min = -100;
-    const max = window.innerWidth;
+    const min = -300;
+    const max = 300;
     return this.randomIntFromInterval(min, max);
   }
   getTransformHeight() {
-    const min = -100;
-    const max = window.innerHeight;
+    const min = -300;
+    const max = 300;
     return this.randomIntFromInterval(min, max);
   }
 
@@ -56,6 +55,6 @@ export class TilesComponent implements OnInit {
         tile.x = this.getTransformWidth();
         tile.y = this.getTransformHeight();
       });
-    }, 10000);
+    }, 5000);
   }
 }

@@ -1,11 +1,14 @@
 @import "src/assets/abstract-dir/mixins";
 
 .tiles-wrapper {
-  @include fluid-type(width, 360px, 1280px, 340px, 1024px);
-  @include fluid-type(height, 360px, 1280px, 340px, 1024px);
+  width: 20em;
+  margin: 2em auto;
+  @include fluid-type(height, 360px, 1280px, 340px, 500px);
+  position: relative;
   .tile {
     background: transparent;
     border: 1px solid #ffffff;
+    position: relative;
     transition: all 1s ease-in-out;
   }
 }
